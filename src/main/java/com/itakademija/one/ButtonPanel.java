@@ -37,6 +37,7 @@ public class ButtonPanel extends JPanel {
 //        RightButtonActionListener rightButtonActionListener = new RightButtonActionListener();
 //        ActionListener rightButtonActionListener = (actionEvent) -> onControlButtonClick(actionEvent);
         this.rightButton.addActionListener(this::onControlButtonClick);
+        //Adding button to JPanel
         add(this.leftButton);
         add(this.centerButton);
         add(this.rightButton);
