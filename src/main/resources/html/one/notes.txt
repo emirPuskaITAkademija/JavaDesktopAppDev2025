@@ -1,0 +1,97 @@
+
+
+    HTML HyperText Markup Language
+    - standard za web stranice
+    - sa HTML možemo napraviti naš web sajt
+       1. static
+
+       2. dynamic - program bilda html i vraća vam ga u response nakon što vi uradite request
+
+     - lagan je za naučiti
+
+    - Markup - tagove ili markere
+    - HTML ima svoj format
+       1. ZAGLAVLJE / HEADER
+       2. TIJELO / BODY
+
+     - HTML element:
+     <tagname> Ide sadržaj</tagname>
+     tagname - h1, li, ul, p, h2...
+     sadržaj je prikazan korisniku na način na koji definira taj element sa tim tagname h1, h2, p...
+
+     - Historijat
+        2014: HTML 5
+        2016: HTML 5.1
+        2017: HTML 5.1 2nd edition
+        2017: HTML 5.2
+
+      - HTML atribut
+         <tagname attribut="value"> Ide neki sadržaj </tagname>
+         - svi HTML elementi mogu imati atribute
+         - dodatno pojašnjavaju HTML element
+         - atributi uvijek idu na "OTVARAJAĆI" tag
+         - format definisanja atributa :  attributeName="attribute value"
+
+         <a href="https://www.it-akademija.com/">Link do IT AKademije</a>
+
+          attributeName -> href
+          attribute value -> https://www.it-akademija.com/
+
+         <img> - samozatvarajući <br> <br/>
+         <img src="putanja do slike">
+
+         1. apsolutnu putanju do slike
+            - server
+            - lokalno na računaru
+
+         2. relativna putana do slike
+
+     - <html lang="en-US"> </html>
+        Preporuka je da uvijek uključite lang atribut
+        i na taj način govorite pretraživaču na kojem jeziku vi prikazujete sadržaj
+
+        search engine
+
+     - h1  -  h6 Headings
+      SEARCH EGINE -> koristi headings da indeksira strukturee i sadržaj vašeg sajta
+
+
+     - Problem Poeme
+     <p>
+        Jednom davno bijahu jedan Tarik.
+
+        On nije volio programski Java.
+
+        Volio je da kodira u Pythonu.
+
+
+        Ostavio je burazera na cjedilu
+
+     </p>
+
+     - HTML atribut zvani STYLE
+
+
+      LISTE
+       - unordered liste
+       - ordered liste
+
+       dl - description list
+       dt - term
+       dd - definition
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
