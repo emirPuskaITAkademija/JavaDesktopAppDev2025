@@ -65,13 +65,30 @@ public class CheckBoxPanel extends JPanel {
         pictureLabel.setIcon(imageIcon);
     }
 
-    // JCheckBox <---- ItemEvent ---> CheckBoxListener
+    // JCheckBox 1, 2, 3, 4 <---- ItemEvent ---> CheckBoxListener
     private class CheckBoxListener implements ItemListener {
 
+        // pictureChoice -> "cght"
+        // c- chin     0
+        // g -glasses  1
+        // h -hair     2
+        // t -teeth    3
+
+        //Kako znati koji JCheckBox je uticao na to da se trigeruje blok koda f-je itemStateChanged ?
+        //Odgovor: preko kanala komunikacije između JCheckBox i CheckBoxListener
+        // JCheckBox 4 instance check boxa  a po šablonu klase CheckBoxListener checkBoxListener 1
+        // chinCheckBox 1.  -> 1 checkBoxListener
+        // glassesCheckBox 2. -> |
+        // hairCheckBox  3. -> |
+        // teethCheckBox 4. -> |
+        // Svaki put kada neko klikne na jedan od ova 4 check boxa trigeruje se itemStateChanged fja
+        // Kako da znam koji je check box trigerovao ovu funkciju ?
+        // preko KANALA komunikacije ItemEvent event
         @Override
         public void itemStateChanged(ItemEvent event) {
             int index = 0;
             char c = '-';
+            // izvor dešavanja -> checkBox koji je upravo checked/unchecked
             Object source = event.getSource();
             if(source == chinCheckBox){
                 index = 0;
