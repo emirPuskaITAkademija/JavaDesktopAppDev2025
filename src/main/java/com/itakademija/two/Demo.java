@@ -1,5 +1,9 @@
 package com.itakademija.two;
 
+import com.formdev.flatlaf.FlatDarkLaf;
+import com.itakademija.two.combo.ComboBoxPanel;
+import com.itakademija.two.combo.EditableComboBoxPanel;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -27,6 +31,12 @@ public class Demo {
     //Thread -> main GUI -> Thread drugom
     public static void main(String[] args) {
         System.out.println(Thread.currentThread().getName());
+        try {
+//            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            UIManager.setLookAndFeel(new FlatDarkLaf());
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
         Runnable runnable = Demo::createAndShoGUI;
         SwingUtilities.invokeLater(runnable);
     }
@@ -38,10 +48,12 @@ public class Demo {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //        JPanel panel = new CheckBoxPanel();
 //        new SelectNamePanel(frame)
-        JPanel panel = new ComboBoxPanel();
-        frame.setContentPane(panel);
+//        JPanel panel = new ComboBoxPanel();
+//        frame.setContentPane(new SelectNamePanel(frame));
+        frame.setContentPane(new EditableComboBoxPanel());
         frame.setTitle("Graphical User Interface Demo");
-        frame.setMinimumSize(new Dimension(300, 300));
+//        frame.setMinimumSize(new Dimension(300, 300));
+        frame.pack();
         frame.setVisible(true);
     }
 }

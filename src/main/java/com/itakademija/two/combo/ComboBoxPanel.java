@@ -1,11 +1,10 @@
-package com.itakademija.two;
+package com.itakademija.two.combo;
 
 import com.itakademija.one.icon.IconLoader;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  * JComboBox -> dvije forme:
