@@ -1,0 +1,13 @@
+O linkovima sumarno:
+
+ - <a> </a>
+ - <a href="putanja na koju link vodi"> </a>
+ - opcionalno : target
+ - <a><img> </a>
+ - putanja na koju linkovi vode:
+   1. apsolutno https://
+   2. relativna
+   3. mailto:
+
+   http HyperTextTransferProtocol
+   http + TLS = https
