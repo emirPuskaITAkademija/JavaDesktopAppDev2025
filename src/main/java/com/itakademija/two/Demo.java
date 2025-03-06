@@ -48,10 +48,11 @@ public class Demo {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //        JPanel panel = new CheckBoxPanel();
 //        new SelectNamePanel(frame)
-//        JPanel panel = new ComboBoxPanel();
+        JPanel panel = new ComboBoxPanel();
+        frame.setContentPane(panel);
 //        frame.setContentPane(new SelectNamePanel(frame));
-        frame.setContentPane(new EditableComboBoxPanel());
-        frame.setTitle("Graphical User Interface Demo");
+//        frame.setContentPane(new EditableComboBoxPanel());
+//        frame.setTitle("Graphical User Interface Demo");
 //        frame.setMinimumSize(new Dimension(300, 300));
         frame.pack();
         frame.setVisible(true);
