@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Primjer Forme</title>
+</head>
+<body>
+<h2>Simple Login HTML form</h2>
+<form action="http://localhost:8080/register" method="post">
+    <label for="nameId">Name:</label><br>
+    <input type="text" id="nameId" name="name"><br>
+    <label for="surnameId">Surname:</label><br>
+    <input type="text" id="surnameId" name="surname"><br>
+
+    <!-- Radio Buttons HTML CSS Java-->
+    <label>Choose your favourite lang:</label><br>
+
+    <label for="html">HTML</label>
+    <input type="radio" id="html" name="language" value="html">
+
+    <label for="css">CSS</label>
+    <input type="radio" id="css" name="language" value="css">
+
+    <label for="java">Java</label>
+    <input type="radio" id="java" name="language" value="Java"><br>
+
+    <!-- Check Box -->
+    <label for="bicikloId">Imam biciklo električno</label><br>
+    <input type="checkbox" id="bicikloId" name="bike" value="bike"><br>
+    <label for="carId">Imam auto koje kao da nije upaljeno-električno</label><br>
+    <input type="checkbox" id="carId" name="car" value="car"><br>
+    <label for="yahtaId">Imam yahtu</label><br>
+    <input type="checkbox" id="yahtaId" name="yahta" value="jahta"><br>
+
+
+    <!-- date -->
+    <label for="dateId">Datum rođenja</label><br>
+    <input id="dateId" type="date" name="datum"><br>
+
+    <!-- color -->
+    <label for="colorId">Omiljena boja</label><br>
+    <input id="colorId" type="color" name="favColor"><br>
+
+    <input type="submit" value="Login">
+</form>
+</body>
+</html>
