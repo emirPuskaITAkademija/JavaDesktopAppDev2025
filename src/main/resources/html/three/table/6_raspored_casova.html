@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Raspored Časova</title>
+  <style>
+    table, td, th{
+      /*border: 1px solid lightgray;*/
+      border-collapse: collapse;
+    }
+    #mainHeader{
+      background-color: darkcyan;
+      color: white;
+      padding: 10px;
+    }
+    th{
+      background-color: #022929;
+      color: white;
+      padding: 5px;
+    }
+    td{
+      padding: 5px;
+    }
+
+    /*tr:nth-child(odd){*/
+    /*  background-color: lightgray;*/
+    /*}*/
+    tr{
+      border-bottom: 1px solid darkgray;
+    }
+    tr:hover{
+      background-color: darkgray;
+      /*visibility: hidden;*/
+    }
+    td:hover{
+      background-color: lightcoral;
+    }
+  </style>
+</head>
+<body>
+<h2>Raspored Časova u 2024/2025</h2>
+<table>
+  <tr>
+    <th id="mainHeader" colspan="6">RASPORED ČASOVA</th>
+  </tr>
+  <tr>
+    <th></th>
+    <th>PON</th>
+    <th>UTO</th>
+    <th>SRI</th>
+    <th>ČET</th>
+    <th>PET</th>
+  </tr>
+  <tr>
+    <td>1.</td>
+    <td>Muzičko</td>
+    <td>Hemija</td>
+    <td>Likovno</td>
+    <td>Bosanski</td>
+    <td>Matematika</td>
+  </tr>
+  <tr>
+    <td>2.</td>
+    <td>Matematika</td>
+    <td>Bosanski</td>
+    <td>Bosanski</td>
+    <td>Fizičko</td>
+    <td>Bosanski</td>
+  </tr>
+  <tr>
+    <td>3.</td>
+    <td>Engleski</td>
+    <td rowspan="2">Matematika</td>
+    <td>Fizika</td>
+    <td>Hemija</td>
+    <td>Fizika</td>
+  </tr>
+  <tr>
+    <td>4.</td>
+    <td>Fizika</td>
+    <td>Engleski</td>
+    <td>Biologija</td>
+    <td>Informatika</td>
+  </tr>
+  <tr>
+    <td>5.</td>
+    <td>Fizičko</td>
+    <td>Biologija</td>
+    <td>Historija</td>
+    <td>Francuski</td>
+    <td>Fizičko</td>
+  </tr>
+</table>
+</body>
+</html>
