@@ -1,5 +1,6 @@
 package com.itakademija.three.sport.dao.player;
 
+import java.awt.*;
 import java.io.Serializable;
 import java.util.StringJoiner;
 
@@ -12,16 +13,19 @@ public class PlayerInfo implements Serializable {
     private String sport;
     private Integer years;
     private boolean vegetarian;
+    private Color color;
 
     public PlayerInfo() {
     }
 
-    public PlayerInfo(String firstName, String lastName, String sport, Integer years, boolean vegetarian) {
+    public PlayerInfo(Integer id, String firstName, String lastName, String sport, Integer years, boolean vegetarian, Color color) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.sport = sport;
         this.years = years;
         this.vegetarian = vegetarian;
+        this.color = color;
     }
 
     public Integer getId() {
@@ -72,6 +76,14 @@ public class PlayerInfo implements Serializable {
         this.vegetarian = vegetarian;
     }
 
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
     @Override
     public String toString() {
         return new StringJoiner(", ", PlayerInfo.class.getSimpleName() + "[", "]")
@@ -81,6 +93,7 @@ public class PlayerInfo implements Serializable {
                 .add("sport='" + sport + "'")
                 .add("years=" + years)
                 .add("vegetarian=" + vegetarian)
+                .add("color=" + color)
                 .toString();
     }
 }
