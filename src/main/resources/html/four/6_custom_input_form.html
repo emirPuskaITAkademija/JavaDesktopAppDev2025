@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Custom Input</title>
+</head>
+<body>
+   <form action="#">
+       <label for="countryCodeId">Country Code</label>
+       <input name="countryCode" id="countryCodeId" pattern="[A-Za-z]{3}" type="text" title="Tri slova u kodu drzave">
+       <br>
+       <label for="phoneNumberId">Broj telefona</label>
+       <input type="tel" id="phoneNumberId" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
+         placeholder="123-456-789" title="9 brojeva sa separatorom - ">
+       <input type="submit">
+   </form>
+</body>
+</html>

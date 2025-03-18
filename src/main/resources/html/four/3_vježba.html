@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+</head>
+<body>
+<h2>Register</h2>
+<form autocomplete="off" method="post">
+    <label for="firstNameId">First Name:</label>
+    <input id="firstNameId" type="text" name="firstName" placeholder="John" required>
+    <label for="lastNameId">Last Name:</label>
+    <input id="lastNameId" type="text" name="lastName" placeholder="Smith" required>
+    <br>
+    <label for="maleId">Male</label>
+    <input id="maleId" type="radio" name="gender">
+
+    <label for="femaleId">Female</label>
+    <input id="femaleId" type="radio" name="gender">
+
+    <label for="otherId">Other</label>
+    <input id="otherId" type="radio" name="gender">
+    <br>
+    <label for="emailId">Email:</label>
+    <input id="emailId" type="email" name="email" required>
+    <label for="passwordId">Password:</label>
+    <input minlength="5" maxlength="10" id="passwordId" type="password" name="password" required>
+    <br>
+    <label for="monthId">Birthday</label>
+    <select id="monthId" name="month">
+        <option>Januar</option>
+        <option>February</option>
+        <option>March</option>
+        <option>April</option>
+        <option>May</option>
+        <option>June</option>
+        <option>July</option>
+        <option>August</option>
+        <option>September</option>
+        <option>October</option>
+        <option>November</option>
+        <option>December</option>
+    </select>
+    <select name="day">
+        <option>30</option>
+        <option>31</option>
+        <option>28</option>
+        <option>29</option>
+    </select>
+    <select name="year">
+        <option>2020</option>
+        <option>2021</option>
+        <option>2022</option>
+        <option>2023</option>
+        <option>2024</option>
+        <option>2025</option>
+    </select>
+    <br>
+    <label for="termsId">I agree to the terms and conditions</label>
+    <input id="termsId" type="checkbox" name="terms">
+    <br>
+    <input type="submit">
+</form>
+</body>
+</html>
