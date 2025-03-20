@@ -3,7 +3,7 @@ package com.itakademija.three.sport.dao;
 import java.util.List;
 
 public interface Dao<E> {
-    void save(E e);
+    boolean save(E e);
 
     void update(E e);
 

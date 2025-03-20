@@ -1,32 +1,24 @@
 package com.itakademija.five;
 
-import com.itakademija.four.Demo;
-import com.itakademija.three.sport.dao.player.PlayerInfo;
-import com.itakademija.three.sport.dao.player.PlayerInfoDao;
+import com.formdev.flatlaf.FlatDarkLaf;
 
 import javax.swing.*;
-import java.util.List;
 
 public class PlayerDemo {
-    public static void main(String[] args) {
-//        Kutija<String, Integer> kutija = new Kutija<>();
-//        Kutija<?, ? super Double> kutija2 = new Kutija<>();
-        try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-//            UIManager.setLookAndFeel(new FlatDarkLaf());
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-        }
-        Runnable runnable = PlayerDemo::createAndShowGUI;
-        SwingUtilities.invokeLater(runnable);
+    //main Thread -> main funkciju on izvršava
+    public static void main(String[] args) throws Exception {
+        String lookAndFeelClassName = UIManager.getSystemLookAndFeelClassName();
+//        UIManager.setLookAndFeel(lookAndFeelClassName);
+//        UIManager.setLookAndFeel(new FlatDarkLaf());
+
+        Runnable worker = PlayerDemo::createAndShowGUI;
+        SwingUtilities.invokeLater(worker);
     }
 
     private static void createAndShowGUI() {
-        JFrame frame = new JFrame("Simple Table Demonstration");
+        JFrame frame = new JFrame("Player Demo");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        JPanel panel = new SimpleTablePanel();
-//        JPanel panel = new TablePanel();
-        JPanel panel = new PlayerTablePanel();
+        JPanel panel = new PlayerTablePanel2();
         frame.setContentPane(panel);
         frame.pack();
         frame.setVisible(true);
