@@ -1,0 +1,33 @@
+/*h2, p{*/
+/*    color: darkred;*/
+/*}*/
+/*h1{*/
+/*    text-align: center;*/
+/*}*/
+
+body{
+    background-color: linen;
+}
+
+h1, h2, p{
+    color: red;
+    margin-left: 20px;
+}
+
+h1 a{
+    font-size: 24px;
+    font-family: "Comic Sans MS";
+}
+
+h1>a{
+    color: darkgreen;
+}
+
+h1~p{
+    font-family: "Comic Sans MS";
+    font-size: 24px;
+}
+
+h1+p{
+    text-align: center;
+}

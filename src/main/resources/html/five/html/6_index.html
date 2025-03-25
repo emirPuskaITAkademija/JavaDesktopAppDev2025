@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/6_index.css">
+</head>
+<body>
+<h3>Register or Login or any other form sample could down below</h3>
+<div>
+    <form action="#" method="post">
+        <label for="firstNameId">First Name</label>
+        <input id="firstNameId" type="text" placeholder="Enter your name..">
+        <label for="lastNameId">Last Name</label>
+        <input id="lastNameId" type="text" placeholder="Enter your surname..">
+        <label for="countrySelectId">Country</label>
+        <select id="countrySelectId">
+<!--            <option value="Afganistan">Afganistan</option>-->
+<!--            <option value="Canada">Canada</option>-->
+<!--            <option value="Danska">Danska</option>-->
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+</body>
+
+<script>
+    //DOM Document Object Model
+    document.addEventListener('DOMContentLoaded', () => {
+        //JS kod može pristupiti i može dinamički dodavati option html elemente unutar njega
+        const countrySelect = document.getElementById('countrySelectId');
+
+        // Dobavljanje podataka sa web servisa
+        fetch('http://localhost:8080/countries')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Greška: ${response.statusText}`);
+                }
+                return response.json();
+            })
+            .then(countryNames => {
+                // Brisanje postojećih opcija
+                countrySelect.innerHTML = '';
+
+                // Dodavanje opcija na osnovu odgovora sa servisa
+                countryNames.forEach(country => {
+                    const option = document.createElement('option');
+                    option.value = country;
+                    option.textContent = country;
+                    countrySelect.appendChild(option);
+                });
+            })
+            .catch(error => {
+                console.error('Neuspješno učitavanje lista zemalja:', error);
+            });
+    });
+</script>
+</html>
