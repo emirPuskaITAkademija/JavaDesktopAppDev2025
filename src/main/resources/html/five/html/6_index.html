@@ -25,34 +25,51 @@
 </body>
 
 <script>
-    //DOM Document Object Model
-    document.addEventListener('DOMContentLoaded', () => {
-        //JS kod može pristupiti i može dinamički dodavati option html elemente unutar njega
-        const countrySelect = document.getElementById('countrySelectId');
-
-        // Dobavljanje podataka sa web servisa
-        fetch('http://localhost:8080/countries')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Greška: ${response.statusText}`);
-                }
-                return response.json();
-            })
-            .then(countryNames => {
-                // Brisanje postojećih opcija
-                countrySelect.innerHTML = '';
-
-                // Dodavanje opcija na osnovu odgovora sa servisa
-                countryNames.forEach(country => {
-                    const option = document.createElement('option');
-                    option.value = country;
-                    option.textContent = country;
-                    countrySelect.appendChild(option);
-                });
-            })
-            .catch(error => {
-                console.error('Neuspješno učitavanje lista zemalja:', error);
+    //Izvršava se prilikom učitavanja HTML stranice
+    const countrySelect =  document.getElementById("countrySelectId");
+    const promise = fetch('http://localhost:8080/countries');
+    promise.then(response =>{
+        const promise = response.json();
+        promise.then(countryNames =>{
+            countrySelect.innerHTML = '';
+            countryNames.forEach(countryName =>{
+                const option = document.createElement('option');
+                option.value=countryName;
+                option.textContent=countryName;
+                countrySelect.appendChild(option);
             });
-    });
+        }).catch(err => console.log(err))
+    }).catch(error => console.log(error));
+
+
+    //DOM Document Object Model
+    // document.addEventListener('DOMContentLoaded', () => {
+    //     //JS kod može pristupiti i može dinamički dodavati option html elemente unutar njega
+    //     const countrySelect = document.getElementById('countrySelectId');
+    //
+    //     // Dobavljanje podataka sa web servisa
+    //     fetch('http://localhost:8080/countries')
+    //         .then(response => {
+    //             if (!response.ok) {
+    //                 throw new Error(`Greška: ${response.statusText}`);
+    //             }
+    //             return response.json();
+    //         })
+    //         .then(countryNames => {
+    //             // Brisanje postojećih opcija
+    //             countrySelect.innerHTML = '';
+    //
+    //             // Dodavanje opcija na osnovu odgovora sa servisa
+    //             countryNames.forEach(country => {
+    //                 const option = document.createElement('option');
+    //                 option.value = country;
+    //                 option.textContent = country;
+    //                 countrySelect.appendChild(option);
+    //             });
+    //         })
+    //         .catch(error => {
+    //             console.error('Neuspješno učitavanje lista zemalja:', error);
+    //         });
+    // });
 </script>
 </html>
