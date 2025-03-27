@@ -1,6 +1,4 @@
-package com.itakademija.five;
-
-import com.formdev.flatlaf.FlatDarkLaf;
+package com.itakademija.six;
 
 import javax.swing.*;
 
@@ -18,7 +16,7 @@ public class PlayerDemo {
     private static void createAndShowGUI() {
         JFrame frame = new JFrame("Player Demo");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JPanel panel = new PlayerTablePanel2();
+        JPanel panel = new PlayerTablePanel();
         frame.setContentPane(panel);
         frame.pack();
         frame.setVisible(true);

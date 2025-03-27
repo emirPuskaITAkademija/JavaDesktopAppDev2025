@@ -1,6 +1,6 @@
 package com.itakademija.three.sport.dao.player;
 
-import com.itakademija.five.ColorUtil;
+import com.itakademija.six.ColorUtil;
 import com.itakademija.three.sport.connection.ConnectionPool;
 import com.itakademija.three.sport.dao.Dao;
 
@@ -31,8 +31,9 @@ public class PlayerInfoDao implements Dao<PlayerInfo> {
         }catch (SQLException e){
             System.err.println(e.getMessage());
             return false;
+        }finally {
+            pool.releaseConnection(connection);
         }
-        pool.releaseConnection(connection);
         return true;
     }
 
@@ -69,7 +70,20 @@ public class PlayerInfoDao implements Dao<PlayerInfo> {
 
     @Override
     public void delete(PlayerInfo playerInfo) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        String sqlDelete = """
+            DELETE FROM player_info
+            WHERE id=?
+            """;
+        ConnectionPool pool = ConnectionPool.instance();
+        Connection connection = pool.getConnection();
+        try (PreparedStatement ps = connection.prepareStatement(sqlDelete)) {
+            ps.setInt(1, playerInfo.getId());
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            System.err.println("Error while deleting record: " + e.getMessage());
+        } finally {
+            pool.releaseConnection(connection);
+        }
     }
 
     @Override

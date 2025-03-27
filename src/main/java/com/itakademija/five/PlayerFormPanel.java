@@ -1,19 +1,37 @@
 package com.itakademija.five;
 
+import com.itakademija.three.sport.dao.player.PlayerInfo;
+
 import javax.swing.*;
 import java.awt.*;
 import javax.swing.border.EmptyBorder;
 
 public class PlayerFormPanel extends JPanel {
 
-    private final JTextField firstNameField;
-    private final JTextField lastNameField;
-    private final JTextField sportField;
-    private final JSpinner yearsSpinner;
-    private final JCheckBox vegetarianCheckBox;
+    private JTextField firstNameField;
+    private JTextField lastNameField;
+    private JTextField sportField;
+    private JSpinner yearsSpinner;
+    private JCheckBox vegetarianCheckBox;
     private Color color;
 
     public PlayerFormPanel() {
+        createFormGUI();
+    }
+
+
+    public void init(PlayerInfo playerInfo) {
+        if (playerInfo != null && playerInfo.getId() != null) {
+            firstNameField.setText(playerInfo.getFirstName());
+            lastNameField.setText(playerInfo.getLastName());
+            sportField.setText(playerInfo.getSport());
+            yearsSpinner.setValue(playerInfo.getYears());
+            vegetarianCheckBox.setSelected(playerInfo.isVegetarian());
+            color = playerInfo.getColor();
+        }
+    }
+
+    private void createFormGUI() {
         setLayout(new GridLayout(6, 2, 10, 10));
 
         // Dodavanje paddinga oko cijelog panela
@@ -55,14 +73,15 @@ public class PlayerFormPanel extends JPanel {
         add(colorLabel);
         add(colorButton);
 
-        // Action for the color picker button
-        colorButton.addActionListener(e -> {
-            Color color = JColorChooser.showDialog(this, "Select a Color", Color.WHITE);
-            if (color != null) {
-                colorButton.setBackground(color);
-                this.color = color;
-            }
-        });
+        colorButton.addActionListener(e -> onColorButtonClick(colorButton));
+    }
+
+    private void onColorButtonClick(JButton colorButton) {
+        Color color = JColorChooser.showDialog(this, "Select a Color", Color.WHITE);
+        if (color != null) {
+            colorButton.setBackground(color);
+            this.color = color;
+        }
     }
 
     public String getFirstName() {
@@ -80,9 +99,11 @@ public class PlayerFormPanel extends JPanel {
     public int getYears() {
         return (int) this.yearsSpinner.getValue();
     }
+
     public boolean getVegetarian() {
         return this.vegetarianCheckBox.isSelected();
     }
+
     public Color getColor() {
         return this.color;
     }

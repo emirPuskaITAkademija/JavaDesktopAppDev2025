@@ -1,8 +1,11 @@
-package com.itakademija.five;
+package com.itakademija.six;
 
+import com.itakademija.five.PlayerInfoFrame;
+import com.itakademija.five.PlayerTableModel;
 import com.itakademija.four.table.cell.ColorCellEditor;
 import com.itakademija.four.table.cell.ColorCellRenderer;
 import com.itakademija.one.icon.IconLoader;
+import com.itakademija.six.action.ActionButtonFactory;
 import com.itakademija.six.action.ActionCellEditor;
 import com.itakademija.six.action.ActionCellRenderer;
 import com.itakademija.six.action.ActionColumnModel;
@@ -12,11 +15,10 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
-public class PlayerTablePanel2 extends JPanel {
+public class PlayerTablePanel extends JPanel {
     private final PlayerTableModel playerTableModel;
-    private final IconLoader iconLoader = new IconLoader(PlayerTablePanel2.class);
 
-    public PlayerTablePanel2() {
+    public PlayerTablePanel() {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setBorder(new EmptyBorder(15, 15, 15, 15));
 
@@ -25,11 +27,7 @@ public class PlayerTablePanel2 extends JPanel {
         buttonPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
         buttonPanel.setBorder(new EmptyBorder(0, 0, 10, 0));
 
-
-        Icon icon = iconLoader.loadIcon("player/add16x16.jpg");
-        JButton addPlayerButton = new JButton(icon);
-        addPlayerButton.setText("Add Player");
-        addPlayerButton.addActionListener(this::openForm);
+        JButton addPlayerButton = ActionButtonFactory.ADD.getButton(this::openForm);
         buttonPanel.add(addPlayerButton);
         add(buttonPanel);
 
@@ -37,7 +35,9 @@ public class PlayerTablePanel2 extends JPanel {
         this.playerTableModel = new PlayerTableModel();
         JTable table = new JTable(playerTableModel);
         table.setRowHeight(40);
-        table.getColumnModel().getColumn(0).setPreferredWidth(350);
+        table.getColumnModel().getColumn(0).setMinWidth(180);
+        table.getColumnModel().getColumn(1).setMinWidth(60);
+        table.getColumnModel().getColumn(2).setMinWidth(60);
         table.setFillsViewportHeight(true);
         // Render i editor za Color
         //renderovanje -> učitavanje i prikazivanje Color.class vrijednosti

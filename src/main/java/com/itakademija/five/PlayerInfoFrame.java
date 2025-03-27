@@ -2,7 +2,6 @@ package com.itakademija.five;
 
 import com.itakademija.one.icon.IconLoader;
 import com.itakademija.three.sport.dao.player.PlayerInfo;
-import com.itakademija.three.sport.dao.player.PlayerInfoDao;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,12 +11,26 @@ import java.util.function.Consumer;
 public class PlayerInfoFrame extends JFrame {
     private final IconLoader iconLoader = new IconLoader(PlayerInfoFrame.class);
 
-    private final Consumer<PlayerInfo> playerInfoConsumer;
+    private final PlayerInfo playerInfo;
     private final PlayerFormPanel playerFormPanel;
+    private final Consumer<PlayerInfo> playerInfoConsumer;
 
-    public PlayerInfoFrame(Consumer<PlayerInfo> playerInfoConsumer) {
+    //ADD NEW PLAYER
+    private PlayerInfoFrame(Consumer<PlayerInfo> playerInfoConsumer) {
+        this(new PlayerInfo(), playerInfoConsumer);
+    }
+
+    //EDIT
+    private PlayerInfoFrame(PlayerInfo playerInfo, Consumer<PlayerInfo> playerInfoConsumer) {
         super("Player Form");
+        this.playerInfo = playerInfo;
         this.playerInfoConsumer = playerInfoConsumer;
+        this.playerFormPanel = new PlayerFormPanel();
+        this.playerFormPanel.init(playerInfo);
+        createFormUI();
+    }
+
+    private void createFormUI() {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(500, 300);
         JPanel buttonPanel = new JPanel();
@@ -31,25 +44,29 @@ public class PlayerInfoFrame extends JFrame {
         buttonPanel.add(saveButton);
         buttonPanel.add(cancelButton);
 
-        this.playerFormPanel = new PlayerFormPanel();
         add(playerFormPanel, BorderLayout.CENTER);
         add(buttonPanel, BorderLayout.SOUTH);
     }
 
     private void onSaveButtonClick(ActionEvent event) {
-        PlayerInfoDao playerInfoDao = new PlayerInfoDao();
-        PlayerInfo playerInfo = new PlayerInfo();
         playerInfo.setFirstName(playerFormPanel.getFirstName());
         playerInfo.setLastName(playerFormPanel.getLastName());
         playerInfo.setSport(playerFormPanel.getSport());
         playerInfo.setYears(playerFormPanel.getYears());
         playerInfo.setVegetarian(playerFormPanel.getVegetarian());
         playerInfo.setColor(playerFormPanel.getColor());
-        boolean success = playerInfoDao.save(playerInfo);
-        if(success){
-            JOptionPane.showMessageDialog(this, "Data saved successfully!", "Save", JOptionPane.INFORMATION_MESSAGE);
-            dispose();
-            playerInfoConsumer.accept(playerInfo);
-        }
+        JOptionPane.showMessageDialog(this, "Data saved successfully!", "Save", JOptionPane.INFORMATION_MESSAGE);
+        dispose();
+        playerInfoConsumer.accept(playerInfo);
+    }
+
+    public static void showNewPlayerForm(Consumer<PlayerInfo> addNewPlayerConsumer) {
+        PlayerInfoFrame playerInfoFrame = new PlayerInfoFrame(addNewPlayerConsumer);
+        playerInfoFrame.setVisible(true);
+    }
+
+    public static void showEditPlayerForm(PlayerInfo playerInfo, Consumer<PlayerInfo> editPlayerConsumer) {
+        PlayerInfoFrame playerInfoFrame = new PlayerInfoFrame(playerInfo, editPlayerConsumer);
+        playerInfoFrame.setVisible(true);
     }
 }
