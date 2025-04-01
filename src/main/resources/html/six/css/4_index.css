@@ -1,0 +1,61 @@
+div.image_card{
+    border: 1px solid #ccc;
+}
+div.image_card:hover{
+    border: 1px solid #777;
+}
+
+div.image_card img{
+    width: 100%;
+    height: auto;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+div.image_description{
+    padding: 15px;
+    text-align: center;
+}
+
+.responsive_card{
+    padding: 0 8px;
+    float: left;
+    width: 25%
+}
+
+.clearing:after{
+    content:"";
+    display: table;
+    clear: both;
+}
+
+.text_desc{
+    padding: 6px;
+}
+
+@media only screen and (max-width: 900px) {
+    .responsive_card{
+        padding: 0 8px;
+        float: left;
+        width: 33%
+    }
+}
+
+
+@media only screen and (max-width: 700px) {
+    .responsive_card{
+        padding: 0 8px;
+        float: left;
+        width: 50%
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .responsive_card{
+        padding: 0 8px;
+        float: left;
+        width: 100%
+    }
+}

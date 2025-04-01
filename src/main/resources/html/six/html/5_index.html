@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/5_index.css">
+</head>
+<body>
+<h3>Register or Login or any other form sample could down below</h3>
+<div>
+    <form action="#" method="post">
+        <label for="firstNameId">First Name</label>
+        <input id="firstNameId" type="text" placeholder="Enter your name..">
+        <label for="lastNameId">Last Name</label>
+        <input id="lastNameId" type="text" placeholder="Enter your surname..">
+        <label for="countrySelectId">Country</label>
+        <select id="countrySelectId">
+
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+</body>
+
+<script>
+    const countrySelect = document.getElementById("countrySelectId");
+    const promise = fetch('http://localhost:8080/countries');
+    promise
+        .then(response => {
+            const jsonPromise = response.json();
+            jsonPromise
+                .then(countriesArray => {
+                    countrySelect.innerHTML = '';
+                    countriesArray.forEach(country => {
+                        const optionElement = document.createElement('option');
+                        optionElement.value = country;
+                        optionElement.text = country;
+                        countrySelect.appendChild(optionElement);
+                    });
+                })
+                .catch(err => console.error(err));
+        })
+        .catch(error => console.error(error));
+</script>
+
+<!--<script>-->
+<!--    //Izvršava se prilikom učitavanja HTML stranice-->
+<!--    const countrySelect =  document.getElementById("countrySelectId");-->
+<!--    const promise = fetch('http://localhost:8080/countries');-->
+<!--    promise.then(response =>{-->
+<!--        const promise = response.json();-->
+<!--        promise.then(countryNames =>{-->
+<!--            countrySelect.innerHTML = '';-->
+<!--            countryNames.forEach(countryName =>{-->
+<!--                const option = document.createElement('option');-->
+<!--                option.value=countryName;-->
+<!--                option.textContent=countryName;-->
+<!--                countrySelect.appendChild(option);-->
+<!--            });-->
+<!--        }).catch(err => console.log(err))-->
+<!--    }).catch(error => console.log(error));-->
+<!--</script>-->
+</html>

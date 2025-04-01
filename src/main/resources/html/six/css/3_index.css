@@ -1,0 +1,28 @@
+
+body{
+    margin: 55px;
+}
+
+div.card{
+    width: 80%;
+    background-color: white;
+    margin-bottom: 100px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+div.card_text{
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 12px;
+}
+
+img{
+    width: 100%;
+    height: auto;
+    opacity: 0.8;
+}
+
+div.card:hover{
+    transform: scale(1.1);
+    opacity: 1;
+}

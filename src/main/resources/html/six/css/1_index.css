@@ -1,0 +1,19 @@
+h1{
+    /*background-color: DodgerBlue;*/
+    /*color: rgb(255, 99, 71);*/
+    /*color: hsl(9, 100%, 64%);*/
+    /*background-color: rgba(255, 99, 71, 0.1);*/
+    background-color: hsla(9, 100%, 64%, 0.1);
+    color: #FF6347;
+    border: 1px solid tomato;
+}
+
+p{
+    /*background-color: tomato;*/
+    border: 1px solid DodgerBlue;
+    color: white;
+}
+
+body{
+    background-image: url("../../one/imgs/bora.jpg");
+}
